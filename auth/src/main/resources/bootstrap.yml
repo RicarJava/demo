@@ -1,0 +1,33 @@
+server:
+  port: 8888
+spring:
+  cache:
+    redis:
+      time-to-live: -1
+  application:
+    name: auth
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1000s
+    jedis:
+      pool:
+        min-idle: 50
+        max-idle: 500
+        max-wait: -1
+        max-active: -1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

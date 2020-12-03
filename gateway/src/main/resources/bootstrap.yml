@@ -1,0 +1,39 @@
+server:
+  port: 8088
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1000s
+    jedis:
+      pool:
+        min-idle: 50
+        max-idle: 500
+        max-wait: -1
+        max-active: -1
+  cache:
+    redis:
+      time-to-live: -1
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: json
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+        group: DEFAULT_GROUP
+        prefix: gateway-router
+        data-id: gateway-router
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

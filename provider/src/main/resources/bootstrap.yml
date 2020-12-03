@@ -1,0 +1,27 @@
+#bootstrap.yaml
+server:
+  port: 8081
+
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        # \u58F0\u660E\u670D\u52A1\u53D1\u73B0\u7684\u547D\u540D\u7A7A\u95F4
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+      config:
+        server-addr: 127.0.0.1:8848
+        # \u58F0\u660E\u4ECEnacos\u914D\u7F6E\u4E2D\u5FC3\u8BFB\u53D6\u7684\u54E6\u914D\u7F6E\u6587\u4EF6\u683C\u5F0F\uFF0C\u9ED8\u8BA4\u662Fproperties
+        file-extension: yaml
+        # \u58F0\u660E\u914D\u7F6E\u6587\u4EF6\u7684\u547D\u540D\u7A7A\u95F4
+        namespace: 99fab3c1-92c0-4ae2-8ab5-31f8404734ac
+        # \u58F0\u660E\u62C9\u53D6\u7684\u914D\u7F6E\u6587\u4EF6
+        group: DEFAULT_GROUP
+        prefix: db-config
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
